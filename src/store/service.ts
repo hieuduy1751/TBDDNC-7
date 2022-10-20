@@ -1,40 +1,40 @@
-import { Job } from "./StoreReducer"
+import { Book } from "./StoreReducer"
 
-const apiPath = 'https://633fa892e44b83bc73bea325.mockapi.io/api/v1'
+const apiPath = 'https://635155423e9fa1244e5bf555.mockapi.io'
 
-const getTasks = async (): Promise<Job[]> => {
-  const res = await fetch(`${apiPath}/tasks`)
+const getBooks = async (): Promise<Book[]> => {
+  const res = await fetch(`${apiPath}/books`)
   return await res.json()
 }
 
-const createTask = async (task: Job) => {
-  const res = await fetch(`${apiPath}/tasks`, {
+const createBook = async (book: Book) => {
+  const res = await fetch(`${apiPath}/books`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(task)
+    body: JSON.stringify(book)
   })
   return await res.json()
 }
 
-const updateTask = async (task: Job) => {
-  const res = await fetch(`${apiPath}/tasks/${task.id}`, {
+const updateBook = async (book: Book) => {
+  const res = await fetch(`${apiPath}/books/${book.id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(task)
+    body: JSON.stringify(book)
   })
   return await res.json()
 }
 
-const deleteTask = async (taskId: number) => {
-  const res = await fetch(`${apiPath}/tasks/${taskId}`, {
+const deleteBook = async (bookId: number) => {
+  const res = await fetch(`${apiPath}/books/${bookId}`, {
     method: 'DELETE'
   })
   return await res.json()
 }
 
-export { getTasks, createTask, updateTask, deleteTask }
+export { getBooks, createBook, updateBook, deleteBook }
 

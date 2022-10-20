@@ -1,47 +1,38 @@
 import * as constants from './constants';
 
 export interface State {
-  job: string,
-  jobs: Job[]
+  books: Book[]
 }
 
-export interface Job {
+export interface Book {
   id: number,
-  title: string,
-  status: boolean,
+  name: string,
+  author: boolean,
+  published_year: number,
+  image_url: string,
 }
 
 export const initialState: State = {
-  job: '',
-  jobs: []
+  books: []
 }
 
 export default function StoreReducer(state: State, action: any) {
   switch (action.type) {
-    case constants.SET_JOBS:
+    case constants.SET_BOOKS:
       return {
-        job: state.job,
-        jobs: action.payload
+        books: action.payload
       }
-    case constants.SET_JOB:
+    case constants.ADD_BOOK:
       return {
-        job: action.payload,
-        jobs: state.jobs
+        books: [action.payload, ...state.books]
       };
-    case constants.ADD_JOB:
+    case constants.DELETE_BOOK:
       return {
-        job: state.job,
-        jobs: [action.payload, ...state.jobs]
+        books: state.books.filter(book => book.id !== action.payload)
       };
-    case constants.DELETE_JOB:
+    case constants.UPDATE_BOOK:
       return {
-        job: state.job,
-        jobs: state.jobs.filter(job => job.id !== action.payload)
-      };
-    case constants.UPDATE_JOB:
-      return {
-        job: state.job,
-        jobs: state.jobs.map(job => job.id === action.payload.id ? action.payload : job)
+        books: state.books.map(book => book.id === action.payload.id ? action.payload : book)
       };
     default:
       return state;

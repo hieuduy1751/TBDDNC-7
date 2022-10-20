@@ -1,7 +1,6 @@
-const SET_JOB = 'set_job';
-const ADD_JOB = 'add_job';
-const DELETE_JOB = 'delete_job';
-const UPDATE_JOB = 'update_job';
-const SET_JOBS = 'set_jobs';
+const ADD_BOOK = 'add_book';
+const DELETE_BOOK = 'delete_book';
+const UPDATE_BOOK = 'update_book';
+const SET_BOOKS = 'set_books';
 
-export { SET_JOB, ADD_JOB, DELETE_JOB, UPDATE_JOB, SET_JOBS };
+export { ADD_BOOK, DELETE_BOOK, UPDATE_BOOK, SET_BOOKS };

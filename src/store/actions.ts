@@ -1,39 +1,32 @@
-import { DELETE_JOB, ADD_JOB, SET_JOB, UPDATE_JOB, SET_JOBS } from "./constants";
-import { Job } from "./StoreReducer";
+import { ADD_BOOK, DELETE_BOOK, SET_BOOKS, UPDATE_BOOK } from "./constants";
+import { Book } from "./StoreReducer";
 
-const setJob = (job: string) => {
+const setBooks = (books: Book[]) => {
   return {
-    type: SET_JOB,
-    payload: job,
+    type: SET_BOOKS,
+    payload: books,
   };
 }
 
-const setJobs = (jobs: Job[]) => {
+const addBook = (book: Book) => {
   return {
-    type: SET_JOBS,
-    payload: jobs,
-  };
-}
-
-const addJob = (job: Job) => {
-  return {
-    type: ADD_JOB,
-    payload: job
+    type: ADD_BOOK,
+    payload: book
   }
 }
 
-const deleteJob = (jobId: number) => {
+const deleteBook = (bookId: number) => {
   return {
-    type: DELETE_JOB,
-    payload: jobId
+    type: DELETE_BOOK,
+    payload: bookId
   }
 }
 
-const updateJob = (job: Job) => {
+const updateBook = (book: Book) => {
   return {
-    type: UPDATE_JOB,
-    payload: job
+    type: UPDATE_BOOK,
+    payload: book
   }
 }
 
-export { setJob, addJob, deleteJob, updateJob, setJobs };
+export { setBooks, addBook, deleteBook, updateBook }
